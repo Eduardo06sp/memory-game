@@ -2,3 +2,19 @@ body {
 	margin: 0;
 	padding: 0;
 }
+
+#win-module {
+	border: 1px solid grey;
+	height: 28em;
+	width: 25em;
+}
+
+#game-header div {
+	display: inline-block;
+}
+
+.card {
+	border: 1px solid grey;
+	height: 13em;
+	width: 10em;
+}
