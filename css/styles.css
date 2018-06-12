@@ -5,7 +5,9 @@ body {
 
 #win-module {
 	border: 1px solid grey;
+	display: none;
 	height: 28em;
+	position: absolute;
 	width: 25em;
 }
 
