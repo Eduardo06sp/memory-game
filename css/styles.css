@@ -17,6 +17,7 @@ body {
 
 .card {
 	border: 1px solid grey;
+	cursor: pointer;
 	height: 13em;
 	width: 10em;
 }
