@@ -22,6 +22,12 @@ body {
 	width: 10em;
 }
 
+.back {
+	height: inherit;
+	position: absolute;
+	width: inherit;
+}
+
 .front {
 	font-size: 5em;
 }
