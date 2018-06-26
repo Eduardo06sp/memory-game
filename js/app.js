@@ -1,6 +1,35 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-	/*** GAME LOGIC ***/
+	/*
+	 *
+	 * SHUFFLING
+	 *
+	 */
+
+	const shuffle = function() {
+		const oldCards = Array.from(document.querySelectorAll('.card'));
+		const newCards = [];
+		let num = '';
+
+		// generate random number, max depends on how many elements in oldCards
+
+		for (let i = oldCards.length; i > 0; i--) {
+			num = Math.floor(Math.random() * (oldCards.length));
+			newCards.push(oldCards[num]);
+			oldCards.splice(num, 1);
+
+		}
+		console.log(newCards);
+	}
+
+	shuffle();
+
+	/*
+	 *
+	 * GAME LOGIC 
+	 *
+	 */
+
 	let card1 = '';
 	let card2 = '';
 
@@ -11,12 +40,9 @@ document.addEventListener('DOMContentLoaded', function() {
 		//store clicked cards as vars
 
 
-		/*
-		 * since vars reset after both are assigned and tested,
-		 * we can track first and second clicks
-		 * by using vars as conditionals
-		 *
-		 */
+		/*since vars reset after both are assigned and tested,
+			we can track first and second clicks
+			by using vars as conditionals */
 
 		if (!card1 && !card2) {
 			card1 = e.target.classList[1];
@@ -36,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		// test for same card #, then different letter
 
 		if ((card1.replace(letter, '') === card2.replace(letter, ''))
-			&& ((letterA.test(card1) && letterB.test(card2)) 
+				&& ((letterA.test(card1) && letterB.test(card2)) 
 					|| (letterB.test(card1) && letterA.test(card2)))) { 
 
 			const matchingCards = game.querySelectorAll( '.' + (card1.replace(letter, '').toString()));
@@ -61,6 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		}
 	}
 
-game.addEventListener('click', match);
+
+	game.addEventListener('click', match);
 
 });
