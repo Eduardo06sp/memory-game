@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
 
+	const game = document.getElementById('memory-game');
+
 	/*
 	 *
 	 * SHUFFLING
@@ -7,19 +9,24 @@ document.addEventListener('DOMContentLoaded', function() {
 	 */
 
 	const shuffle = function() {
-		const oldCards = Array.from(document.querySelectorAll('.card'));
+		let oldCards = Array.from(document.querySelectorAll('.card'));
 		const newCards = [];
 		let num = '';
 
-		// generate random number, max depends on how many elements in oldCards
+		// generate random number
+		// max depends on how many total elements in oldCards
+		// add randomly selected card to new array,
+		// then delete it from old array
 
 		for (let i = oldCards.length; i > 0; i--) {
 			num = Math.floor(Math.random() * (oldCards.length));
 			newCards.push(oldCards[num]);
 			oldCards.splice(num, 1);
-
 		}
-		console.log(newCards);
+		for (const card of newCards) {
+			// credit to Matthew Cranford, our fellow classmate, for this loop
+			game.appendChild(card);
+		}
 	}
 
 	shuffle();
@@ -33,7 +40,6 @@ document.addEventListener('DOMContentLoaded', function() {
 	let card1 = '';
 	let card2 = '';
 
-	const game = document.getElementById('memory-game');
 
 	const match = function(e) {
 
