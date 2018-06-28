@@ -4,6 +4,57 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	/*
 	 *
+	 * TIMER
+	 *
+	 */
+
+	const resetTimer = function() {
+
+		/*** second counter ***/
+		let startSeconds = new Date();
+		let endSeconds = new Date();
+		let secCountUp;
+
+		startSeconds.setSeconds(0);
+		endSeconds.setSeconds(59);
+
+		setInterval(function() {
+			endSeconds.setSeconds((endSeconds.getSeconds()) + 1);
+			secCountUp = (endSeconds.getSeconds() - startSeconds.getSeconds());
+
+			console.log(endSeconds.getSeconds() + '-' + startSeconds.getSeconds());
+			console.log(secCountUp);
+
+			//add minute once 60 seconds have passed
+
+			if (secCountUp === 0) {
+				endMinutes.setMinutes((endMinutes.getMinutes()) + 1);
+				console.log((endMinutes.getMinutes() - startMinutes.getMinutes()));
+			}
+
+
+		}, 1000);
+
+		/*** minute counter ***/
+		let startMinutes = new Date();
+		let endMinutes = new Date();
+
+		startMinutes.setMinutes(0);
+		endMinutes.setMinutes(59);
+
+		setInterval(function() {
+			// console.log(endMinutes.getMinutes() + '-' + startMinutes.getMinutes());
+			// console.log((endMinutes.getMinutes() - startMinutes.getMinutes()));
+		}, 1000);
+		
+
+	}
+
+	resetTimer();
+
+
+	/*
+	 *
 	 * SHUFFLING
 	 *
 	 */
@@ -66,6 +117,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		const letterB = /card\db/;
 
 		// test for same card #, then different letter
+		/***** NOTE: UPDATE MOVE COUNTER HERE AND CALL TIMER FUNCTION ********/
 
 		if ((card1.replace(letter, '') === card2.replace(letter, ''))
 				&& ((letterA.test(card1) && letterB.test(card2)) 
