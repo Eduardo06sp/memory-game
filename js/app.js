@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-	const game = document.getElementById('memory-game');
+	const gameHeader = document.querySelector('#game-header');
+	const game = document.querySelector('#memory-game');
 
 	/*
 	 *
@@ -11,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	const resetTimer = function() {
 
 		/*** second counter ***/
+		const secSpan = gameHeader.querySelector('#seconds');
 		let startSeconds = new Date();
 		let endSeconds = new Date();
 		let secCountUp;
@@ -25,22 +27,30 @@ document.addEventListener('DOMContentLoaded', function() {
 			console.log(endSeconds.getSeconds() + '-' + startSeconds.getSeconds());
 			console.log(secCountUp);
 
-			//add minute once 60 seconds have passed
+			// add minute once 60 seconds have passed
+			// and update minute span
 
 			if (secCountUp === 0) {
+				minCountUp = endMinutes.getMinutes() - startMinutes.getMinutes();
+
 				endMinutes.setMinutes((endMinutes.getMinutes()) + 1);
-				console.log((endMinutes.getMinutes() - startMinutes.getMinutes()));
+				console.log(minCountUp);
+
+				minSpan.innerHTML = minCountUp;
 			}
+
+			secSpan.innerHTML = secCountUp;
 
 
 		}, 1000);
 
 		/*** minute counter ***/
+		const minSpan = gameHeader.querySelector('#minutes');
 		let startMinutes = new Date();
 		let endMinutes = new Date();
 
 		startMinutes.setMinutes(0);
-		endMinutes.setMinutes(59);
+		endMinutes.setMinutes(0);
 
 		setInterval(function() {
 			// console.log(endMinutes.getMinutes() + '-' + startMinutes.getMinutes());
