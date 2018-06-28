@@ -23,6 +23,10 @@ body {
 	display: inline-block;
 }
 
+#reset {
+	cursor: pointer;
+}
+
 .card {
 	border: 1px solid grey;
 	cursor: pointer;

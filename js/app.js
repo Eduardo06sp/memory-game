@@ -6,11 +6,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	/*
 	 *
+	 * START SCREEN
+	 *
+	 */
+
+	const startGame = function() {
+		startTimer();
+		this.parentNode.remove();
+	}
+
+	/*
+	 *
 	 * TIMER
 	 *
 	 */
 
-	const resetTimer = function() {
+	let secondCounter;
+	const startTimer = function() {
+
+		console.log('TIMER FIRING');
 
 		/*** second counter ***/
 		const secSpan = gameHeader.querySelector('#seconds');
@@ -21,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		startSeconds.setSeconds(0);
 		endSeconds.setSeconds(59);
 
-		setInterval(function() {
+		secondCounter = setInterval(function() {
 			endSeconds.setSeconds((endSeconds.getSeconds()) + 1);
 			secCountUp = (endSeconds.getSeconds() - startSeconds.getSeconds());
 
@@ -53,12 +67,14 @@ document.addEventListener('DOMContentLoaded', function() {
 		startMinutes.setMinutes(0);
 		endMinutes.setMinutes(0);
 
-		setInterval(function() {
-			// console.log(endMinutes.getMinutes() + '-' + startMinutes.getMinutes());
-			// console.log((endMinutes.getMinutes() - startMinutes.getMinutes()));
-		}, 1000);
 		
 
+	}
+
+	// reset timer
+	const resetTimer = function() {
+		clearInterval(secondCounter);
+		startTimer();
 	}
 
 
@@ -155,21 +171,10 @@ document.addEventListener('DOMContentLoaded', function() {
 		}
 	}
 
-	/*
-	 *
-	 * START SCREEN
-	 *
-	 */
-
-	const startGame = function() {
-		console.log('TIMER FIRING');
-		resetTimer();
-		this.parentNode.remove();
-	}
-
 
 	game.addEventListener('click', match);
 	startScreen.querySelector('#start-game-button').addEventListener('click', startGame);
+	gameHeader.querySelector('#reset').addEventListener('click', resetTimer);
 	
 
 });
