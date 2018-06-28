@@ -171,10 +171,33 @@ document.addEventListener('DOMContentLoaded', function() {
 		}
 	}
 
+	/*
+	 *
+	 * RESET GAME
+	 *
+	 */
+
+	// undo hiding the cards
+	const resetGame = function() {
+
+		shuffle();
+		resetTimer();
+
+		const cards = game.querySelectorAll('.card');
+
+		// loop through each card, reset display, showing cards again
+		for (const card of cards) {
+			card.style.display = '';
+		}
+
+
+	}
+
+
 
 	game.addEventListener('click', match);
 	startScreen.querySelector('#start-game-button').addEventListener('click', startGame);
-	gameHeader.querySelector('#reset').addEventListener('click', resetTimer);
+	gameHeader.querySelector('#reset').addEventListener('click', resetGame);
 	
 
 });
