@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
 
+	const startScreen = document.querySelector('#start-overlay');
 	const gameHeader = document.querySelector('#game-header');
 	const game = document.querySelector('#memory-game');
 
@@ -60,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	}
 
-	resetTimer();
+
 
 
 	/*
@@ -127,7 +128,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		const letterB = /card\db/;
 
 		// test for same card #, then different letter
-		/***** NOTE: UPDATE MOVE COUNTER HERE AND CALL TIMER FUNCTION ********/
+		/***** NOTE: UPDATE MOVE COUNTER HERE ********/
 
 		if ((card1.replace(letter, '') === card2.replace(letter, ''))
 				&& ((letterA.test(card1) && letterB.test(card2)) 
@@ -136,7 +137,6 @@ document.addEventListener('DOMContentLoaded', function() {
 			const matchingCards = game.querySelectorAll( '.' + (card1.replace(letter, '').toString()));
 
 			// loop through each match, set display to none
-
 			for (var i = 0; matchingCards.length > i; i++) {
 				matchingCards[i].style.display = 'none';
 			}
@@ -155,7 +155,21 @@ document.addEventListener('DOMContentLoaded', function() {
 		}
 	}
 
+	/*
+	 *
+	 * START SCREEN
+	 *
+	 */
+
+	const startGame = function() {
+		console.log('TIMER FIRING');
+		resetTimer();
+		this.parentNode.remove();
+	}
+
 
 	game.addEventListener('click', match);
+	startScreen.querySelector('#start-game-button').addEventListener('click', startGame);
+	
 
 });
