@@ -164,6 +164,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 			if (hiddenCards.length === 16) {
 				alert('USER HAS WON');
+				clearInterval(secondCounter);
 			}
 
 
