@@ -179,6 +179,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 		if (card1 && card2) {
 			updateCounter();
+			updateRating();
 			console.log('RESETTING VARS');
 			card1 = '';
 			card2 = '';
@@ -224,6 +225,26 @@ document.addEventListener('DOMContentLoaded', function() {
 		console.log('the counter is at ' + count + '. adding one updates it to ' + (count + 1));
 		movesSpan.innerHTML = count;
 	};
+
+	/*
+	 *
+	 * STAR RATING
+	 *
+	 */
+
+	const updateRating = function() {
+		const starRating = gameHeader.querySelector('#rating');
+
+		console.log('the count is ' + count);
+		if (count === 14) {
+			starRating.innerHTML = '★ ★ ☆';
+		} else if (count === 19) {
+			starRating.innerHTML = '★ ☆ ☆';
+		}
+	}
+
+
+
 
 
 	game.addEventListener('click', match);
