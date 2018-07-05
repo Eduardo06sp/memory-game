@@ -142,6 +142,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		const letter = /(a|b)$/;
 		const letterA = /card\da/;
 		const letterB = /card\db/;
+		let hiddenCards;
 
 		// test for same card #, then different letter
 		/***** NOTE: UPDATE MOVE COUNTER HERE ********/
@@ -157,10 +158,21 @@ document.addEventListener('DOMContentLoaded', function() {
 				matchingCards[i].style.display = 'none';
 			}
 
+			// check if user has won
+
+			hiddenCards = game.querySelectorAll('.card[style="display: none;"]');
+
+			if (hiddenCards.length === 16) {
+				alert('USER HAS WON');
+			}
+
+
 			console.log('Match!');
 		} else {
 			console.log('No match!');
 		}
+	
+
 
 		//reset card vars after cards have been tested
 
