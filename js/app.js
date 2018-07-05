@@ -177,6 +177,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		//reset card vars after cards have been tested
 
 		if (card1 && card2) {
+			updateCounter();
 			console.log('RESETTING VARS');
 			card1 = '';
 			card2 = '';
@@ -205,6 +206,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	}
 
+
+	/*
+	 *
+	 * UPDATE COUNTER
+	 *
+	 */
+
+	let movesSpan;
+	let count = 0;
+	const updateCounter = function() {
+		movesSpan = gameHeader.querySelector('#moves');
+		count += 1;
+		movesSpan.innerHTML = count;
+
+		console.log('the counter is at ' + count + '. adding one updates it to ' + (count + 1));
+		movesSpan.innerHTML = count;
+	};
 
 
 	game.addEventListener('click', match);
