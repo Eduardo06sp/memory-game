@@ -205,6 +205,11 @@ document.addEventListener('DOMContentLoaded', function() {
 			card.style.display = '';
 		}
 
+		gameHeader.querySelector('#rating').innerHTML = '★ ★ ★';
+
+		//reset count
+		count = 0;
+		gameHeader.querySelector('#moves').innerHTML = 0;
 
 	}
 
