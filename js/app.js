@@ -1,5 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
 
+	const winModal = document.querySelector('#win-modal');
+	const modalExit = winModal.querySelector('#close-modal');
+	const modalYes = winModal.querySelector('#yes');
+	const modalNo = winModal.querySelector('#no');
 	const startScreen = document.querySelector('#start-overlay');
 	const gameHeader = document.querySelector('#game-header');
 	const game = document.querySelector('#memory-game');
@@ -115,6 +119,9 @@ document.addEventListener('DOMContentLoaded', function() {
 	 *
 	 */
 
+	const modalRating = winModal.querySelector('#rating-result');
+	const modalTime = winModal.querySelector('#time-result');
+	const modalCount = winModal.querySelector('#counter-result');
 	let card1 = '';
 	let card2 = '';
 
@@ -163,8 +170,23 @@ document.addEventListener('DOMContentLoaded', function() {
 			hiddenCards = game.querySelectorAll('.card[style="display: none;"]');
 
 			if (hiddenCards.length === 16) {
-				alert('USER HAS WON');
+
 				clearInterval(secondCounter);
+
+				/*
+				 *
+				 * CONGRATS MODAL
+				 *
+				 */
+
+				winModal.style.display = '';
+
+				modalRating.innerHTML = gameHeader.querySelector('#rating').innerHTML;
+				modalTime.innerHTML = gameHeader.querySelector('#minutes').innerHTML + ' minutes and ' + 
+					gameHeader.querySelector('#seconds').innerHTML + ' seconds ';
+				modalCount.innerHTML = gameHeader.querySelector('#counter').innerHTML;
+
+
 			}
 
 
@@ -248,6 +270,22 @@ document.addEventListener('DOMContentLoaded', function() {
 		}
 	}
 
+	/*
+	 *
+	 * PLAY AGAIN
+	 *
+	 */
+
+	const yes = function() {
+		winModal.style.display = 'none';
+		resetGame();
+	};
+
+	const no = function() {
+		modalYes.remove();
+		modalNo.remove();
+		winModal.querySelector('p').innerHTML = 'Thanks for playing!';
+	};
 
 
 
@@ -255,6 +293,10 @@ document.addEventListener('DOMContentLoaded', function() {
 	game.addEventListener('click', match);
 	startScreen.querySelector('#start-game-button').addEventListener('click', startGame);
 	gameHeader.querySelector('#reset').addEventListener('click', resetGame);
+	modalExit.addEventListener('click', yes);
+	modalYes.addEventListener('click', yes);
+	modalNo.addEventListener('click', no);
+
 	
 
 });

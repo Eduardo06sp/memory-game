@@ -3,9 +3,9 @@ body {
 	padding: 0;
 }
 
-#win-module {
+#win-modal {
+	background-color: lightgrey;
 	border: 1px solid grey;
-	display: none;
 	height: 28em;
 	position: absolute;
 	width: 25em;
