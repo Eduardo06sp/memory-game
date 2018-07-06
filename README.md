@@ -1,17 +1,15 @@
 This is a project made for Udacity's Front-End Web Developer Nanodegree.
 
-This is a JavaScript recreation of the game Concentration.
+This is a JavaScript recreation of the game Concentration, thus requires JavaScript to be enabled.
 The goal is to flip over cards and match all of the pairs.
 
 The star rating system will rate your performance.
 
-★ ★ ★ : 32 moves or less
+★ ★ ★ : 13 moves or less
 
-★ ★ ☆ : 33 moves or less
+★ ★ ☆ : 18 moves or less
 
-★ ☆ ☆ : 34 moves or less
-
-☆ ☆ ☆ : 35 moves or more
+★ ☆ ☆ : 19 moves or more
 
 After you successfully complete the game, you will see:
 * How long the game took to complete
