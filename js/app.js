@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		startMinutes.setMinutes(0);
 		endMinutes.setMinutes(0);
 
-		
+
 
 	}
 
@@ -191,7 +191,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 		}
-	
+
 
 
 		//reset card vars after cards have been tested
@@ -295,6 +295,6 @@ document.addEventListener('DOMContentLoaded', function() {
 	modalYes.addEventListener('click', yes);
 	modalNo.addEventListener('click', no);
 
-	
+
 
 });
