@@ -28,7 +28,6 @@ document.addEventListener('DOMContentLoaded', function() {
 	let secondCounter;
 	const startTimer = function() {
 
-		console.log('TIMER FIRING');
 
 		/*** second counter ***/
 		const secSpan = gameHeader.querySelector('#seconds');
@@ -43,8 +42,6 @@ document.addEventListener('DOMContentLoaded', function() {
 			endSeconds.setSeconds((endSeconds.getSeconds()) + 1);
 			secCountUp = (endSeconds.getSeconds() - startSeconds.getSeconds());
 
-			console.log(endSeconds.getSeconds() + '-' + startSeconds.getSeconds());
-			console.log(secCountUp);
 
 			// add minute once 60 seconds have passed
 			// and update minute span
@@ -53,7 +50,6 @@ document.addEventListener('DOMContentLoaded', function() {
 				minCountUp = endMinutes.getMinutes() - startMinutes.getMinutes();
 
 				endMinutes.setMinutes((endMinutes.getMinutes()) + 1);
-				console.log(minCountUp);
 
 				minSpan.innerHTML = minCountUp;
 			}
@@ -147,7 +143,6 @@ document.addEventListener('DOMContentLoaded', function() {
 		}
 
 
-		console.log('card1 and card 2 variables:' + card1 + ' ' + card2);
 
 		// test for match
 
@@ -195,9 +190,6 @@ document.addEventListener('DOMContentLoaded', function() {
 			}
 
 
-			console.log('Match!');
-		} else if (card1 !== card2) {
-			console.log('No match!');
 		}
 	
 
@@ -209,7 +201,6 @@ document.addEventListener('DOMContentLoaded', function() {
 			window.setTimeout(function() {
 				game.querySelector('.' + card1).classList.add('hide');
 				game.querySelector('.' + card2).classList.add('hide');
-				console.log('RESETTING VARS');
 				card1 = '';
 				card2 = '';
 			}, 500);
@@ -269,7 +260,6 @@ document.addEventListener('DOMContentLoaded', function() {
 	const updateRating = function() {
 		const starRating = gameHeader.querySelector('#rating');
 
-		console.log('the count is ' + count);
 		if (count === 14) {
 			starRating.innerHTML = '★ ★ ☆';
 		} else if (count === 19) {
