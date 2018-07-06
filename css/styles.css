@@ -12,9 +12,12 @@ body {
 }
 
 #start-overlay {
-	background-color: grey;
+	background-color: rgba(255, 240, 112, 0.61);
 	height: 100%;
-	position: absolute;
+	margin: 0 auto;
+	position: fixed;
+	text-align: center;
+	top: 0;
 	width: 100%;
 	z-index: 100;
 }
