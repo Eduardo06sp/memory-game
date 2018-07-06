@@ -70,6 +70,10 @@ main {
 	width: 10em;
 }
 
+.hide {
+	background-color: white;
+}
+
 .back {
 	height: inherit;
 	position: absolute;

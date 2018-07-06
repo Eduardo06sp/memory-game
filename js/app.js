@@ -129,16 +129,16 @@ document.addEventListener('DOMContentLoaded', function() {
 	const match = function(e) {
 
 		//store clicked cards as vars
-
-
 		/*since vars reset after both are assigned and tested,
 			we can track first and second clicks
 			by using vars as conditionals */
 
 		if (!card1 && !card2) {
 			card1 = e.target.classList[1];
+			game.querySelector('.' + card1).classList.remove('hide');
 		} else if (card1 && !card2) {
 			card2 = e.target.classList[1];
+			game.querySelector('.' + card2).classList.remove('hide');
 		}
 
 
@@ -202,9 +202,13 @@ document.addEventListener('DOMContentLoaded', function() {
 		if (card1 && card2) {
 			updateCounter();
 			updateRating();
-			console.log('RESETTING VARS');
-			card1 = '';
-			card2 = '';
+			window.setTimeout(function() {
+				game.querySelector('.' + card1).classList.add('hide');
+				game.querySelector('.' + card2).classList.add('hide');
+				console.log('RESETTING VARS');
+				card1 = '';
+				card2 = '';
+			}, 500);
 		}
 	}
 
@@ -286,6 +290,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		modalNo.remove();
 		winModal.querySelector('p').innerHTML = 'Thanks for playing!';
 	};
+
 
 
 
