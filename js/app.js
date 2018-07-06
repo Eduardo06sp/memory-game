@@ -152,7 +152,6 @@ document.addEventListener('DOMContentLoaded', function() {
 		let hiddenCards;
 
 		// test for same card #, then different letter
-		/***** NOTE: UPDATE MOVE COUNTER HERE ********/
 
 		if ((card1.replace(letter, '') === card2.replace(letter, ''))
 				&& ((letterA.test(card1) && letterB.test(card2)) 
@@ -161,6 +160,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			const matchingCards = game.querySelectorAll( '.' + (card1.replace(letter, '').toString()));
 
 			// loop through each match, set visibility to hidden
+
 			for (var i = 0; matchingCards.length > i; i++) {
 				matchingCards[i].style.visibility = 'hidden';
 			}
