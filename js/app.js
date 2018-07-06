@@ -139,6 +139,11 @@ document.addEventListener('DOMContentLoaded', function() {
 		} else if (card1 && !card2) {
 			card2 = e.target.classList[1];
 			game.querySelector('.' + card2).classList.remove('hide');
+
+			//only update counter if cards are different
+			if (card1 !== card2) {
+				updateCounter();
+			}
 		}
 
 
@@ -191,7 +196,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 			console.log('Match!');
-		} else {
+		} else if (card1 !== card2) {
 			console.log('No match!');
 		}
 	
@@ -200,7 +205,6 @@ document.addEventListener('DOMContentLoaded', function() {
 		//reset card vars after cards have been tested
 
 		if (card1 && card2) {
-			updateCounter();
 			updateRating();
 			window.setTimeout(function() {
 				game.querySelector('.' + card1).classList.add('hide');
@@ -253,7 +257,6 @@ document.addEventListener('DOMContentLoaded', function() {
 		count += 1;
 		movesSpan.innerHTML = count;
 
-		console.log('the counter is at ' + count + '. adding one updates it to ' + (count + 1));
 		movesSpan.innerHTML = count;
 	};
 
