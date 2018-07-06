@@ -53,11 +53,10 @@ main {
 }
 
 #memory-game {
-	display: grid;
+	display: flex;
+	flex-wrap: wrap;
 	font-family: initial;
-	grid-template-columns: repeat(4, 1fr);
 	max-width: 1000px;
-	grid-gap: 20px;
 }
 
 .card {
