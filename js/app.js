@@ -160,14 +160,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
 			const matchingCards = game.querySelectorAll( '.' + (card1.replace(letter, '').toString()));
 
-			// loop through each match, set display to none
+			// loop through each match, set visibility to hidden
 			for (var i = 0; matchingCards.length > i; i++) {
-				matchingCards[i].style.display = 'none';
+				matchingCards[i].style.visibility = 'hidden';
 			}
 
 			// check if user has won
 
-			hiddenCards = game.querySelectorAll('.card[style="display: none;"]');
+			hiddenCards = game.querySelectorAll('.card[style="visibility: hidden;"]');
 
 			if (hiddenCards.length === 16) {
 
@@ -222,9 +222,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 		const cards = game.querySelectorAll('.card');
 
-		// loop through each card, reset display, showing cards again
+		// loop through each card, reset visibility, showing cards again
 		for (const card of cards) {
-			card.style.display = '';
+			card.style.visibility = '';
 		}
 
 		gameHeader.querySelector('#rating').innerHTML = '★ ★ ★';
